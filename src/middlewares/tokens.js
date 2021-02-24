@@ -1,10 +1,9 @@
 const jwt = require("jsonwebtoken");
-const UserModel = require("../services/users/schema");
 
 const generateTokens = user => {
   const accessToken = jwt.sign(
     {
-      id: user_id,
+      id: user._id,
       email: user.email,
     },
     process.env.JWT_SECRET,
@@ -12,11 +11,12 @@ const generateTokens = user => {
   );
   const refreshToken = jwt.sign(
     {
-      id: user_id,
+      id: user._id,
     },
     process.env.REFRESH_JWT_SECRET,
     { expiresIn: "1d" }
   );
+  return {accessToken, refreshToken}
 };
 
 const verifyToken =(token, key)=>{

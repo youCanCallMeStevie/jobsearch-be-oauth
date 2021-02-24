@@ -20,7 +20,7 @@ exports.oAuthRedirectController = async (req, res, next) => {
       //determine when the cookie needs to be used
       path: "/refreshToken",
     });
-    res.status(200).redirect(`${process.env.FE_URL_DEV}`); //sending back to FE & there is no body in a redirect
+    res.status(200).redirect(`${process.env.FE_URL}`); //sending back to FE & there is no body in a redirect
   } catch (error) {
     console.log(error);
     next(error);

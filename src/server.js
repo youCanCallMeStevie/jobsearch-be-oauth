@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const passport = require("passport");
 const apiRoutes = require("./services/index");
+require("./middlewares/passports")
 
 const cookieParser = require("cookie-parser");
 const {
